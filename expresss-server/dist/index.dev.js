@@ -6,7 +6,7 @@ var path = require('path');
 
 var fs = require('fs');
 
-var app = express(); // http://127.0.0.1:3000/file?id=1
+var app = express(); // http://127.0.0.1:3001/file?id=1
 
 app.get('/file', function (req, res) {
   var id = req.query.id;
@@ -19,8 +19,9 @@ app.get('/file', function (req, res) {
       res.send(err);
     } else {
       res.status(200);
-      res.send(JSON.parse(result));
+      res.send(result);
+      console.log(JSON.parse(result));
     }
   });
 });
-app.listen(3000);
+app.listen(3001);

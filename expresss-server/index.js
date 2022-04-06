@@ -3,7 +3,7 @@ const path = require('path')
 const fs =require('fs')
 const app = express()
 
-// http://127.0.0.1:3000/file?id=1
+// http://127.0.0.1:3001/file?id=1
 app.get('/file',(req,res)=>{
     const id = req.query.id;
     const filepath = path.join(__dirname,'data',id+'.json');
@@ -13,8 +13,9 @@ app.get('/file',(req,res)=>{
             res.send(err)
         }else{
             res.status(200);
-            res.send(JSON.parse(result));
+            res.send(result);
+            console.log(JSON.parse(result));
         }
     })
 })
-app.listen(3000)
+app.listen(3001)
